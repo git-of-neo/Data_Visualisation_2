@@ -1,0 +1,54 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Bump chart",
+    "width": "container",
+    "data": {
+      "url": "data/top_10_rank.csv"
+    },
+    "layer": [
+        {
+        "mark":{
+          "type": "line", 
+          "point": true, 
+          "strokeWidth":5,
+          "strokeOpacity":0.5
+        },
+        "encoding": {
+          "x": {"field": "Year", "type": "nominal"},
+          "y": {
+              "field": "Happiness Rank",
+              "type": "quantitative",
+              "sort":"descending",
+              "scale":{"domainMin":1},
+              "axis":{"grid": false}
+              },
+          "color":{"field": "Country", "type": "ordinal", "scale":{"scheme":"tableau20"}}
+        }
+      },
+      {
+        "mark":{
+          "type": "point",
+          "strokeWidth":10
+        },
+        "encoding": {
+          "x": {"field": "Year", "type": "nominal"},
+          "y": {
+              "field": "Happiness Rank",
+              "type": "quantitative",
+              "sort":"descending",
+              "scale":{"domainMin":1},
+              "axis":{"grid": false}
+              },
+          "color":{"field": "Country", "type": "ordinal", "scale":{"scheme":"tableau20"}}
+        }
+      }
+    ],
+    "config": {
+      "style": {
+        "cell": {
+          "stroke": "transparent"
+        }
+      }
+    }
+  }
+  
