@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "data/world-happiness-report-2021.csv"},
+  "data": {"url": "data/jitter.csv"},
   "width": "container",
   "mark": {
     "type": "point"
@@ -12,11 +12,11 @@
         "scale": {"zero": false},
         "axis":{"grid": false}
       },
-    "color": {"field": "Regional indicator", "type": "nominal", "legend": true},
+    "color": {"field": "Regional indicator", "type": "nominal"},
     "x": {
-      "field": "Regional indicator",
-      "type": "nominal",
-      "axis":{"labels" : false}
+      "field": "Jitter",
+      "type": "quantitative",
+      "axis":{"labels" : false, "title":null}
     }, 
     "tooltip":[
         {"field":"Ladder score"},
