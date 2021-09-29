@@ -23,7 +23,6 @@
           "scale":{"scheme":"tableau20"},
           "legend":null
         },
-        "opacity":{"value":{"expr": "datum['Country name'] == 'Finland' ? 1 : 0.2"}},
         "tooltip":[
           {"field" : "Country name"},
           {"field" : "Year"}
@@ -31,14 +30,31 @@
     },
     "layer": [
       {
+        "params": [{
+          "name": "hover",
+          "value": [{"Country name": "Finland"}],
+          "select": {
+            "type": "point",
+            "fields": ["Country name"],
+            "on": "mouseover"
+          }
+        }],
         "mark":{
           "type": "line", 
           "point": {"size": 80}, 
           "strokeWidth":5,
           "strokeOpacity":0.7
+        },
+        "encoding": {
+          "color":{
+            "condition":{
+              "param": "hover",
+              "field": "Country name"
+            },
+            "value":"lightgrey"
+          }
         }        
       },
-      
       {
         "mark":{
           "type": "text",
