@@ -16,7 +16,6 @@
         },
         {"filter":"datum.rank <= 5"}
       ],
-      "mark":"bar",
       "encoding": {
         "y":{"field":"rank"},
         "x":{
@@ -33,7 +32,36 @@
           {"field":"Country name"},
           {"field":"score_deviation", "title":"Deviation from global average", "format":".2f"}
         ]
-      }
+      },
+      "layer": [
+        {
+          "mark":"bar"
+        },
+        {
+          "mark":{
+            "type": "text",
+            "align":"left",
+            "dx":3
+          },
+          "encoding": {
+            "text":{
+              "field":"score_deviation", 
+              "format":".2f"}
+          }
+        },
+        {
+          "mark":{
+            "type": "text",
+            "align":"left",
+            "dx":10
+          },
+          "encoding": {
+            "x":{"datum":0},
+            "text":{"field":"Country name"},
+            "color":{"value":"white"}
+          }
+        }
+      ]
     },
     {
       "transform": [
@@ -43,7 +71,6 @@
         },
         {"filter":"datum.rank <= 5"}
       ],
-      "mark":"bar",
       "encoding": {
         "y":{"field":"rank"},
         "x":{
@@ -56,11 +83,38 @@
           {"field":"Country name"},
           {"field":"score_deviation", "title":"Deviation from global average", "format":".2f"}
         ]
-      }
+      },
+      "layer": [
+        {
+          "mark":"bar"
+        },
+        {
+          "mark":{
+            "type": "text",
+            "align":"right",
+            "dx":-3
+          },
+          "encoding": {
+            "text":{"field":"score_deviation", "format":".2f"}
+          }
+        },
+        {
+          "mark":{
+            "type": "text",
+            "align":"right",
+            "dx":-10
+          },
+          "encoding": {
+            "x":{"datum":0},
+            "text":{"field":"Country name"},
+            "color":{"value" : "white"}
+          }
+        }
+      ]
     }
   ],
   "config": {
     "view": {"stroke":null},
-    "axis": {"grid": false, "labels": false}
+    "axis": {"disable": true}
   }
 }
