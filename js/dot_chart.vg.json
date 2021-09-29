@@ -2,31 +2,63 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {"url": "data/jitter.csv"},
   "width": "container",
-  "mark": {
-    "type": "point"
-  },
-  "encoding": {
-    "y": {
-        "field": "Ladder score", 
+  "transform": [{
+    "joinaggregate": [{
+      "field": "Ladder score",
+      "as": "average_score",
+      "op": "mean"
+    }]
+  }],
+  "layer":[
+  {
+    "mark": {
+      "type": "point"
+    },
+    "encoding": {
+      "y": {
+          "field": "Ladder score", 
+          "type": "quantitative",
+          "scale": {"zero": false},
+          "axis":{"grid": false}
+        },
+      "color": {"field": "Regional indicator", "type": "nominal"},
+      "x": {
+        "field": "Jitter",
         "type": "quantitative",
-        "scale": {"zero": false},
-        "axis":{"grid": false}
-      },
-    "color": {"field": "Regional indicator", "type": "nominal"},
-    "x": {
-      "field": "Jitter",
-      "type": "quantitative",
-      "axis":{"labels" : false, "title":null}
-    }, 
-    "tooltip":[
-        {"field":"Ladder score"},
-        {"field":"Country name"}
-      ]
-},"config": {
+        "axis":{"labels" : false, "title":null}
+      }, 
+      "tooltip":[
+          {"field":"Ladder score"},
+          {"field":"Country name"}
+        ]
+    }
+  },
+  {
+    "data":{"values":[{}]},
+    "encoding": {
+      "y":{"datum":5.532838926174494}
+    },
+    "layer": [{
+      "mark":"rule"
+    },{
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "top",
+        "dx": 2,
+        "dy": 5,
+        "x": "width",
+        "text": "global average"
+      }
+    }
+    ]
+  }
+],
+"config": {
   "style": {
     "cell": {
       "stroke": "transparent"
+      }
     }
   }
-}
 }
