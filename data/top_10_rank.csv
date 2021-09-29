@@ -1,71 +1,71 @@
-Year,Country,Happiness Rank
-2015,Switzerland,1
-2015,Iceland,2
-2015,Denmark,3
-2015,Norway,4
-2015,Canada,5
-2015,Finland,6
-2015,Netherlands,7
-2015,Sweden,8
-2015,New Zealand,9
-2015,Australia,10
-2016,Denmark,1
-2016,Switzerland,2
-2016,Iceland,3
-2016,Norway,4
-2016,Finland,5
-2016,Canada,6
-2016,Netherlands,7
-2016,New Zealand,8
-2016,Australia,9
-2016,Sweden,10
-2017,Norway,1
-2017,Denmark,2
-2017,Iceland,3
-2017,Switzerland,4
-2017,Finland,5
-2017,Netherlands,6
-2017,Canada,7
-2017,New Zealand,8
-2017,Sweden,9
-2017,Australia,10
-2018,Finland,1
-2018,Norway,2
-2018,Denmark,3
-2018,Iceland,4
-2018,Switzerland,5
-2018,Netherlands,6
-2018,Canada,7
-2018,New Zealand,8
-2018,Sweden,9
-2018,Australia,10
-2019,Finland,1
-2019,Denmark,2
-2019,Norway,3
-2019,Iceland,4
-2019,Netherlands,5
-2019,Switzerland,6
-2019,Sweden,7
-2019,New Zealand,8
-2019,Canada,9
-2019,Austria,10
-2020,Finland,1
-2020,Denmark,2
-2020,Switzerland,3
-2020,Iceland,4
-2020,Norway,5
-2020,Netherlands,6
-2020,Sweden,7
-2020,New Zealand,8
-2020,Austria,9
-2020,Luxembourg,10
-2021,Finland,1
-2021,Denmark,2
-2021,Switzerland,3
-2021,Iceland,4
-2021,Netherlands,5
-2021,Norway,6
-2021,Sweden,7
-2021,Luxembourg,8
-2021,New Zealand,9
-2021,Austria,10
+Year,Country name,Rank,Image
+2015,Switzerland,1,data/flags/Switzerland.png
+2015,Iceland,2,data/flags/Iceland.png
+2015,Denmark,3,data/flags/Denmark.png
+2015,Norway,4,data/flags/Norway.png
+2015,Canada,5,data/flags/Canada.png
+2015,Finland,6,data/flags/Finland.png
+2015,Netherlands,7,data/flags/Netherlands.png
+2015,Sweden,8,data/flags/Sweden.png
+2015,New Zealand,9,data/flags/New_Zealand.png
+2015,Australia,10,data/flags/Australia.png
+2016,Denmark,1,data/flags/Denmark.png
+2016,Switzerland,2,data/flags/Switzerland.png
+2016,Iceland,3,data/flags/Iceland.png
+2016,Norway,4,data/flags/Norway.png
+2016,Finland,5,data/flags/Finland.png
+2016,Canada,6,data/flags/Canada.png
+2016,Netherlands,7,data/flags/Netherlands.png
+2016,New Zealand,8,data/flags/New_Zealand.png
+2016,Australia,9,data/flags/Australia.png
+2016,Sweden,10,data/flags/Sweden.png
+2017,Norway,1,data/flags/Norway.png
+2017,Denmark,2,data/flags/Denmark.png
+2017,Iceland,3,data/flags/Iceland.png
+2017,Switzerland,4,data/flags/Switzerland.png
+2017,Finland,5,data/flags/Finland.png
+2017,Netherlands,6,data/flags/Netherlands.png
+2017,Canada,7,data/flags/Canada.png
+2017,New Zealand,8,data/flags/New_Zealand.png
+2017,Sweden,9,data/flags/Sweden.png
+2017,Australia,10,data/flags/Australia.png
+2018,Finland,1,data/flags/Finland.png
+2018,Norway,2,data/flags/Norway.png
+2018,Denmark,3,data/flags/Denmark.png
+2018,Iceland,4,data/flags/Iceland.png
+2018,Switzerland,5,data/flags/Switzerland.png
+2018,Netherlands,6,data/flags/Netherlands.png
+2018,Canada,7,data/flags/Canada.png
+2018,New Zealand,8,data/flags/New_Zealand.png
+2018,Sweden,9,data/flags/Sweden.png
+2018,Australia,10,data/flags/Australia.png
+2019,Finland,1,data/flags/Finland.png
+2019,Denmark,2,data/flags/Denmark.png
+2019,Norway,3,data/flags/Norway.png
+2019,Iceland,4,data/flags/Iceland.png
+2019,Netherlands,5,data/flags/Netherlands.png
+2019,Switzerland,6,data/flags/Switzerland.png
+2019,Sweden,7,data/flags/Sweden.png
+2019,New Zealand,8,data/flags/New_Zealand.png
+2019,Canada,9,data/flags/Canada.png
+2019,Austria,10,data/flags/Austria.png
+2020,Finland,1,data/flags/Finland.png
+2020,Denmark,2,data/flags/Denmark.png
+2020,Switzerland,3,data/flags/Switzerland.png
+2020,Iceland,4,data/flags/Iceland.png
+2020,Norway,5,data/flags/Norway.png
+2020,Netherlands,6,data/flags/Netherlands.png
+2020,Sweden,7,data/flags/Sweden.png
+2020,New Zealand,8,data/flags/New_Zealand.png
+2020,Austria,9,data/flags/Austria.png
+2020,Luxembourg,10,data/flags/Luxembourg.png
+2021,Finland,1,data/flags/Finland.png
+2021,Denmark,2,data/flags/Denmark.png
+2021,Switzerland,3,data/flags/Switzerland.png
+2021,Iceland,4,data/flags/Iceland.png
+2021,Netherlands,5,data/flags/Netherlands.png
+2021,Norway,6,data/flags/Norway.png
+2021,Sweden,7,data/flags/Sweden.png
+2021,Luxembourg,8,data/flags/Luxembourg.png
+2021,New Zealand,9,data/flags/New_Zealand.png
+2021,Austria,10,data/flags/Austria.png

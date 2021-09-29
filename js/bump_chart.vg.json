@@ -5,50 +5,71 @@
     "data": {
       "url": "data/top_10_rank.csv"
     },
+    "encoding": {
+      "x": {
+        "field": "Year", 
+        "type": "nominal", 
+        "axis":{"titleBaseline":"top"}
+      },
+      "y": {
+          "field": "Rank",
+          "type": "quantitative",
+          "sort":"descending",
+          "scale":{"domainMin":1}
+        },
+        "color":{
+          "field": "Country name", 
+          "type": "ordinal", 
+          "scale":{"scheme":"tableau20"},
+          "legend":null
+        },
+        "opacity":{"value":{"expr": "datum['Country name'] == 'Finland' ? 1 : 0.2"}},
+        "tooltip":[
+          {"field" : "Country name"},
+          {"field" : "Year"}
+        ]
+    },
     "layer": [
-        {
+      {
         "mark":{
           "type": "line", 
-          "point": true, 
+          "point": {"size": 80}, 
           "strokeWidth":5,
-          "strokeOpacity":0.5
+          "strokeOpacity":0.7
+        }        
+      },
+      
+      {
+        "mark":{
+          "type": "text",
+          "dx":-13,
+          "align":"center"
         },
         "encoding": {
-          "x": {"field": "Year", "type": "nominal"},
-          "y": {
-              "field": "Happiness Rank",
-              "type": "quantitative",
-              "sort":"descending",
-              "scale":{"domainMin":1},
-              "axis":{"grid": false}
-              },
-          "color":{"field": "Country", "type": "ordinal", "scale":{"scheme":"tableau20"}}
+          "text":{"field":"Rank"},
+          "opacity":{"value":{"expr": "datum['Year'] == 2015 ? 1 : 0"}},
+          "color":{"value":"black"}
         }
       },
       {
+        "data":{"url": "data/top_10_rank.csv"},
+        "transform": [
+          {"filter":"datum['Year']==2021"}
+        ],
         "mark":{
-          "type": "point",
-          "strokeWidth":10
+          "type": "image",
+          "width":20,
+          "height":20
         },
         "encoding": {
-          "x": {"field": "Year", "type": "nominal"},
-          "y": {
-              "field": "Happiness Rank",
-              "type": "quantitative",
-              "sort":"descending",
-              "scale":{"domainMin":1},
-              "axis":{"grid": false}
-              },
-          "color":{"field": "Country", "type": "ordinal", "scale":{"scheme":"tableau20"}}
+          "url":{"field":"Image", "type": "nominal"},
+          "opacity":{"value":1}
         }
       }
     ],
     "config": {
-      "style": {
-        "cell": {
-          "stroke": "transparent"
-        }
-      }
+      "view": {"stroke":null},
+      "axis": {"disable": true}
     }
   }
   
