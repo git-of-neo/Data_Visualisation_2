@@ -1,70 +1,66 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A bar chart with negative values. We can hide the axis domain line, and instead use a conditional grid color to draw a zero baseline.",
   "width":"container",
   "data": {
-    "url":"data/movers.csv"
+    "url":"data/world-happiness-report-2021.csv"
   },
   "transform": [
-    {"filter": "abs(datum['Change']) >= 10" },
-    {"calculate": "toNumber(datum['Change']) + 1000", "as": "Pos"}
+    {"calculate": "datum['Ladder score'] - 5.532838926174494", "as": "score_deviation"}
   ],
-  "encoding": {
-    "y": {
-      "field": "Country name",
-      "type": "nominal",
-      "axis": null,
-      "sort":["Pakistan",
-        "El Salvador",
-        "Benin",
-        "Mexico",
-        "Lebanon",
-        "Turkey",
-        "Algeria",
-        "China",
-        "Mongolia",
-        "Estonia",
-        "Albania",
-        "Ukraine",
-        "Gambia",
-        "Serbia",
-        "Bahrain",
-        "Croatia",
-        "Jamaica",
-        "Armenia"]
-    },"x": {
-      "field": "Change",
-      "type": "quantitative",
-      "axis":null,
-      "scale": {"padding": 20}
-    }
-  },
-  "layer": [{
-    "mark": {"type": "bar", "color": "#ddd"}
-  }, {
-    "mark": {
-      "type": "text", 
-      "align": {"expr": "datum.Change < 0 ? 'left' : 'right'"},
-      "dx":{"expr": "datum.Change < 0 ? toNumber(datum.Change)*-2.2 +3 : toNumber(datum.Change)*-2.2 -3"}},
-    "encoding": {
-      "text": {"field": "Country name", "type": "nominal"}
-    }
-  }, {
-    "mark": {
-      "type": "text", 
-      "align": {"expr": "datum.Change < 0 ? 'right' : 'left'"},
-      "dx": {"expr": "datum.Change < 0 ? -2 : 2"}
+  "layer": [
+    {
+      "transform": [
+        {"window": 
+          [{"op":"rank", "as": "rank"}], 
+          "sort": [{"field": "score_deviation","order":"descending"}]
+        },
+        {"filter":"datum.rank <= 5"}
+      ],
+      "mark":"bar",
+      "encoding": {
+        "y":{"field":"rank"},
+        "x":{
+          "aggregate":"sum",
+          "field":"score_deviation"
+        },
+        "color":{
+          "legend":null,
+          "scale":{"range":["#c1181b","#e13128","#f6573f","#fb7f60","#fca589","#b2e0ac","#8ccf8a","#60ba6c","#39a055","#1a833e"]}, 
+          "field":"score_deviation"
+        },
+        "tooltip":[
+          {"field":"Ladder score"},
+          {"field":"Country name"},
+          {"field":"score_deviation", "title":"Deviation from global average", "format":".2f"}
+        ]
+      }
     },
-    "encoding": {
-      "text": {"field": "Change"}
-    }
-  }
-  ],
-  "config": {
-    "style": {
-      "cell": {
-        "stroke": "transparent"
+    {
+      "transform": [
+        {"window": 
+          [{"op":"rank", "as": "rank"}], 
+          "sort": [{"field": "score_deviation","order":"ascending"}]
+        },
+        {"filter":"datum.rank <= 5"}
+      ],
+      "mark":"bar",
+      "encoding": {
+        "y":{"field":"rank"},
+        "x":{
+          "aggregate":"sum",
+          "field":"score_deviation"
+        },
+        "color":{"field":"score_deviation"},
+        "tooltip":[
+          {"field":"Ladder score"},
+          {"field":"Country name"},
+          {"field":"score_deviation", "title":"Deviation from global average", "format":".2f"}
+        ]
       }
     }
+  ],
+  "config": {
+    "view": {"stroke":null},
+    "axis": {"grid": false, "labels": false}
   }
 }
