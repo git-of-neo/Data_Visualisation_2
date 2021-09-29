@@ -2,15 +2,15 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {"url": "data/jitter.csv"},
   "width": "container",
-  "transform": [{
-    "joinaggregate": [{
-      "field": "Ladder score",
-      "as": "average_score",
-      "op": "mean"
-    }]
-  }],
   "layer":[
   {
+    "selection":{
+      "selected_region":{
+        "type":"multi",
+        "fields":["Regional indicator"],
+        "bind":"legend"
+      }
+    },
     "mark": {
       "type": "point"
     },
@@ -21,16 +21,37 @@
           "scale": {"zero": false},
           "axis":{"grid": false}
         },
-      "color": {"field": "Regional indicator", "type": "nominal"},
+      "color": {"field": "Regional indicator", "type": "nominal", "legend":{"symbolOpacity":1}},
       "x": {
         "field": "Jitter",
         "type": "quantitative",
-        "axis":{"labels" : false, "title":null}
+        "axis":{"labels" : true, "title":null}
       }, 
+      "opacity":{
+        "condition":{"selection":"selected_region", "value":{"expr": "datum['Ladder score'] > 5.532838926174494 ? 0.8 : 0.4"}},
+        "value": 0.1
+    },
       "tooltip":[
           {"field":"Ladder score"},
           {"field":"Country name"}
         ]
+    }
+  },
+  {
+    "data" : {"url": "data/regional_average.csv"},
+    "mark" : {"type":"tick", "orient":"horizontal"},
+    "encoding": {
+      "x":{"field":"Jitter","type": "quantitative"},
+      "y":{"field":"Ladder score","type": "quantitative"},
+      "color":{"value":"black"},
+      "opacity":{
+        "condition":{"selection":"selected_region", "value":1},
+        "value": 0.1
+      },
+      "tooltip":[
+        {"field":"Ladder score" , "title":"Regional average", "format":".2f"},
+        {"field":"Regional indicator" , "title":"Region"}
+      ]
     }
   },
   {
@@ -39,7 +60,7 @@
       "y":{"datum":5.532838926174494}
     },
     "layer": [{
-      "mark":"rule"
+      "mark":{"type":"rule", "strokeDash":[4]}
     },{
       "mark": {
         "type": "text",
@@ -55,6 +76,7 @@
   }
 ],
 "config": {
+  "tick": {"thickness": 2},
   "style": {
     "cell": {
       "stroke": "transparent"
