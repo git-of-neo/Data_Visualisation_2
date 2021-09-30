@@ -56,7 +56,8 @@
           "text":{"value":{"expr": "'Finland no.1!!!'"}},
           "latitude":{"datum":40},
           "longitude":{"datum":180},
-          "color":{"value":"black"}
+          "color":{"value":"black"},
+          "tooltip":null
         }
       }
     ],
