@@ -8,8 +8,7 @@
     "encoding": {
       "x": {
         "field": "Year", 
-        "type": "nominal", 
-        "axis":{"titleBaseline":"top"}
+        "type": "nominal"
       },
       "y": {
           "field": "Rank",
@@ -20,7 +19,7 @@
         "color":{
           "field": "Country name", 
           "type": "ordinal", 
-          "scale":{"scheme":"tableau20"},
+          "scale":{"range":["#4c78a8", "#9ecae9", "#fcbfd2" , "#b279a2" , "#54a24b" , "#d67195", "#d6a5c9", "#9e765f", "#439894", "#83bcb6", "#79706e", "#d8b5a5"]},
           "legend":null
         },
         "tooltip":[
@@ -52,18 +51,31 @@
               "field": "Country name"
             },
             "value":"lightgrey"
-          }
+          },
+          "opacity":{"value":{"expr": "hover['Country name']==null && datum['Country name']!='Finland' ? 0.3 : 1"}}
         }        
       },
       {
         "mark":{
           "type": "text",
-          "dx":-13,
+          "dx":-15,
           "align":"center"
         },
         "encoding": {
           "text":{"field":"Rank"},
           "opacity":{"value":{"expr": "datum['Year'] == 2015 ? 1 : 0"}},
+          "color":{"value":"black"}
+        }
+      },
+      {
+        "mark":{
+          "type": "text",
+          "align":"center",
+          "dy":18
+        },
+        "encoding": {
+          "text":{"field":"Year"},
+          "opacity":{"value":{"expr": "datum['Rank'] == 10 ? 1 : 0"}},
           "color":{"value":"black"}
         }
       },

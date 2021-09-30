@@ -21,7 +21,7 @@
           "scale": {"zero": false},
           "axis":{"grid": false}
         },
-      "color": {"field": "Regional indicator", "type": "nominal", "legend":{"symbolOpacity":1}},
+      "color": {"field": "Regional indicator", "type": "nominal", "legend":{"labelLimit":180,"symbolOpacity":1}},
       "x": {
         "field": "Jitter",
         "type": "quantitative",
@@ -55,9 +55,9 @@
     }
   },
   {
-    "data":{"values":[{}]},
     "encoding": {
-      "y":{"datum":5.532838926174494}
+      "y":{"aggregate":"average","field":"Ladder score"},
+      "tooltip":[{"aggregate":"average", "field":"Ladder score", "title":"Global average" , "format":".2f"}]
     },
     "layer": [{
       "mark":{"type":"rule", "strokeDash":[4]}
