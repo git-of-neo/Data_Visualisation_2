@@ -5,7 +5,8 @@
     "url":"data/world-happiness-report-2021.csv"
   },
   "transform": [
-    {"calculate": "datum['Ladder score'] - 5.532838926174494", "as": "score_deviation"}
+    {"joinaggregate": [{"as": "average_score", "field": "Ladder score", "op":"average"}]},
+    {"calculate": "datum['Ladder score'] - datum['average_score']", "as": "score_deviation"}
   ],
   "layer": [
     {
