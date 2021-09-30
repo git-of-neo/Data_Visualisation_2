@@ -24,9 +24,6 @@
     "projection": {
       "type": "equalEarth"
     },
-    "mark": {
-      "type": "geoshape"
-      },
     "encoding": {
       "color": {
         "field": "Ladder score",
@@ -46,6 +43,23 @@
         {"field": "string score","title":"Score"}
       ]
     },
+    "layer": [
+      {
+        "mark": {
+          "type": "geoshape"
+        }
+      },
+      {
+        "data":{"values":{}},
+        "mark":"text",
+        "encoding": {
+          "text":{"value":{"expr": "'Finland no.1!!!'"}},
+          "latitude":{"datum":40},
+          "longitude":{"datum":180},
+          "color":{"value":"black"}
+        }
+      }
+    ],
     "config":{
       "mark": {"invalid": null},
       "style": {
