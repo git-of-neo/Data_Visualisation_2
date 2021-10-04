@@ -46,13 +46,15 @@
         },
         "encoding": {
           "color":{
-            "condition":{
-              "param": "hover",
-              "field": "Country name"
-            },
-            "value":"lightgrey"
-          },
-          "opacity":{"value":{"expr": "hover['Country name']==null && datum['Country name']!='Finland' ? 0.3 : 1"}}
+            "condition":[{
+              "test": {"not":{"param":"hover"}},
+              "value":"lightgrey"
+            }, {
+              "test":"hover['Country name'] != datum['Country name'] && datum['Country name']!='Finland'",
+              "value":"lightgrey"
+            }],
+            "field":"Country name"
+          }
         }        
       },
       {
