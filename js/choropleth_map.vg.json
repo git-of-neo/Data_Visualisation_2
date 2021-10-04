@@ -90,7 +90,7 @@
                 "scale": {"zero": false},
                 "axis":{"grid": false}
               },
-            "color": {"field": "Regional indicator", "type": "nominal", "legend":{"labelLimit":180,"symbolOpacity":1}},
+            "color": {"field": "Regional indicator", "type": "nominal", "legend":{"labelLimit":130,"symbolOpacity":1, "interactive":true}},
             "x": {
               "field": "Jitter",
               "type": "quantitative",
@@ -102,7 +102,8 @@
           },
             "tooltip":[
                 {"field":"Ladder score"},
-                {"field":"Country name"}
+                {"field":"Country name"},
+                {"field":"Regional indicator"}
               ]
           }
         },
