@@ -10,11 +10,6 @@ var bump = "js/bump_chart.vg.json";
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);
 
-var dot = "js/dot_chart.vg.json";
-    vegaEmbed("#dot_chart", dot, disable_action).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-}).catch(console.error);
-
 var bar = "js/bar_chart.vg.json";
     vegaEmbed("#bar_chart", bar, disable_action).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
