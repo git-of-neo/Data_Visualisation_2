@@ -54,17 +54,6 @@
             "mark": {
               "type": "geoshape"
             }
-          },
-          {
-            "data":{"values":{}},
-            "mark":"text",
-            "encoding": {
-              "text":{"value":{"expr": "'Finland no.1!!!'"}},
-              "latitude":{"datum":40},
-              "longitude":{"datum":180},
-              "color":{"value":"black"},
-              "tooltip":null
-            }
           }
         ]
       },
@@ -87,14 +76,14 @@
             "y": {
                 "field": "Ladder score", 
                 "type": "quantitative",
-                "scale": {"zero": false},
-                "axis":{"grid": false}
+                "scale": {"zero": false, "domainMin":2},
+                "axis":{"grid": true, "title":"Ladder score", "titleFontSize": 14}
               },
-            "color": {"field": "Regional indicator", "type": "nominal", "legend":{"labelLimit":130,"symbolOpacity":1, "interactive":true}},
+            "color": {"field": "Regional indicator", "type": "nominal", "legend":{"labelLimit":130,"symbolOpacity":1}},
             "x": {
               "field": "Jitter",
               "type": "quantitative",
-              "axis":{"labels" : true, "title":null}
+              "axis":null
             }, 
             "opacity":{
               "condition":{"selection":"selected_region", "value":{"expr": "datum['Ladder score'] > 5.532838926174494 ? 0.8 : 0.4"}},
@@ -143,7 +132,7 @@
             }
           }
           ]
-        }
+        }     
       ]
       }
     ]
