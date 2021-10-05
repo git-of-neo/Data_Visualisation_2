@@ -136,7 +136,7 @@
             },
             "tooltip":[
               {"field":"Ladder score" , "title":"Regional average", "format":".2f"},
-              {"field":"Regional indicator" , "title":"Region"}
+              {"field":"Regional indicator"}
             ]
           }
         },
@@ -165,7 +165,8 @@
     ]
     ,
     "config":{
-      "autosize":"fit-x"
+      "autosize":"fit-x",
+      "tick": {"thickness": 3}
     }
 }
   
