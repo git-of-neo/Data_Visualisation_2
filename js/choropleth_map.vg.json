@@ -23,7 +23,7 @@
     "vconcat":[
       {
         "width":"container",
-        "height":400,
+        "height":350,
         "projection": {
           "type": "equalEarth"
         },

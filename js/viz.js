@@ -1,7 +1,7 @@
 var disable_action = {actions: false};
 
-var map = "js/choropleth_map.vg.json";
-    vegaEmbed("#choropleth_map", map, disable_action).then(function(result) {
+var map = "js/dot_map.vg.json";
+    vegaEmbed("#map", map, disable_action).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);
 
@@ -10,7 +10,12 @@ var bump = "js/bump_chart.vg.json";
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);
 
-var bar = "js/bar_chart.vg.json";
-    vegaEmbed("#bar_chart", bar, disable_action).then(function(result) {
+var bar = "js/bar_chart_highest.vg.json";
+    vegaEmbed("#bar_chart1", bar, disable_action).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+}).catch(console.error);
+
+var bar = "js/bar_chart_lowest.vg.json";
+    vegaEmbed("#bar_chart2", bar, disable_action).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);
