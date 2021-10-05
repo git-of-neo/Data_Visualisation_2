@@ -28,12 +28,14 @@
         "fields": ["Latitude", "Longitude"]
       }
     },
-    {"calculate":"toString(datum['Ladder score'])","as":"string score"}
+    {"calculate":"toString(datum['Ladder score'])","as":"string score"},
+    {"joinaggregate": [{"field": "Ladder score", "as": "average score", "op": "average"}]},
+    {"calculate": "abs(datum['Ladder score'] - datum['average score'])", "as": "deviation from average"}
     ],
     "vconcat":[
       {
         "width":"container",
-        "height":400,
+        "height":350,
         "projection": {
           "type": "equalEarth"
         },
@@ -55,7 +57,11 @@
               "latitude":{"field":"Latitude"},
               "longitude":{"field":"Longitude"},
               "size":{
-                "value": 70
+                "field":"deviation from average",
+                "type":"quantitative",
+                "bin":false,
+                "legend":{"format":".1f","orient": "top-left", "title":"Deviation"},
+                "scale":{"rangeMax":150, "rangeMin":10}
               },
               "color": {
                 "field": "Ladder score",
@@ -68,6 +74,10 @@
                   "zero":false,
                   "nice":true,
                   "scheme":"redyellowgreen"
+                },
+                "legend":{
+                  "orient": "bottom-left",
+                  "direction": "vertical"
                 }
               },
               "opacity":{
@@ -76,9 +86,8 @@
               },
               "tooltip": [
                 {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-                {"field": "string score","title":"Score"},
-                {"field":"CapitalLatitude"},
-                {"field":"CapitalLongitude"}
+                {"field": "Ladder score"},
+                {"field": "deviation from average"}
               ]
             }
           }
@@ -97,7 +106,7 @@
             }
           },
           "mark": {
-            "type": "point"
+            "type": "circle"
           },
           "encoding": {
             "y": {
@@ -113,7 +122,7 @@
               "axis":null
             }, 
             "opacity":{
-              "condition":{"selection":"selected_region", "value":{"expr": "datum['Ladder score'] > 5.532838926174494 ? 0.8 : 0.4"}},
+              "condition":{"selection":"selected_region", "value":{"expr": "datum['Ladder score'] > 5.532838926174494 ? 1 : 0.4"}},
               "value": 0.1
           },
             "tooltip":[
@@ -166,7 +175,7 @@
     ,
     "config":{
       "autosize":"fit-x",
-      "tick": {"thickness": 3}
+      "tick": {"thickness": 3, "size":20}
     }
 }
   
