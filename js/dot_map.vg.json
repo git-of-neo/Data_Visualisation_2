@@ -76,7 +76,7 @@
                   "scheme":"redyellowgreen"
                 },
                 "legend":{
-                  "orient": "bottom-left",
+                  "orient": "right",
                   "direction": "vertical"
                 }
               },
