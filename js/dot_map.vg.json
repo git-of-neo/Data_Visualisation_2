@@ -22,10 +22,10 @@
       "lookup": "properties.ISO_A2",
       "from": {
         "data": {
-          "url": "data/concap.csv"
+          "url": "data/country_locations.csv"
         },
-        "key": "CountryCode",
-        "fields": ["CapitalLatitude", "CapitalLongitude"]
+        "key": "ISO 3166 Country Code",
+        "fields": ["Latitude", "Longitude"]
       }
     },
     {"calculate":"toString(datum['Ladder score'])","as":"string score"}
@@ -42,7 +42,7 @@
           {
             "mark": {
               "type": "geoshape",
-              "fill":"black"
+              "fill":"lightgrey"
             }
           },
           {
@@ -52,10 +52,10 @@
               "strokeWidth":1
             },
             "encoding": {
-              "latitude":{"field":"CapitalLatitude"},
-              "longitude":{"field":"CapitalLongitude"},
+              "latitude":{"field":"Latitude"},
+              "longitude":{"field":"Longitude"},
               "size":{
-                "value": 80
+                "value": 70
               },
               "color": {
                 "field": "Ladder score",
