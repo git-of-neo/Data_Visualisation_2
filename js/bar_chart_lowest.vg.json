@@ -1,9 +1,25 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width":"container",
+  "height":300,
   "data": {
     "url":"data/world-happiness-report-2021.csv"
   },
+  "transform": [
+    {"joinaggregate": [{"field": "Ladder score", "as": "average score", "op": "average"}]},
+    {"calculate": "datum['Ladder score'] - datum['average score']", "as": "score_deviation"}
+  ],
+  "params": [{
+    "name": "N",
+    "value":10,
+    "bind":{
+      "input": "range",
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "name": "Lowest N ranked : "
+    }
+  }],
   "layer": [
     {
       "transform": [
@@ -12,7 +28,7 @@
           [{"op":"rank", "as": "rank"}], 
           "sort": [{"field": "Ladder score","order":"descending"}]
         },
-        {"filter":"datum.rank >= 144"}
+        {"filter":"datum.rank >= (150-N)"}
       ],
       "encoding": {
         "y":{"field":"rank"},
@@ -22,7 +38,7 @@
         },
         "color":{
           "legend":null,
-          "scale":{"scheme":"reds"}, 
+          "scale":{"scheme":"reds", "reverse":true}, 
           "field":"Ladder score"
         },
         "tooltip":[
@@ -36,6 +52,48 @@
           "mark":"bar"
         },
         {
+          "transform": [{"calculate": "5.532838926174494", "as": "average_score"}],
+          "data":{"values":{}},
+          "encoding": {
+            "x":{"datum":5.532838926174494},
+            "y":{"datum":100},
+            "color":{"value":"lightgrey"},
+            "tooltip":[
+              {"title":"global average", "aggregate":"average","field":"average_score", "format":".2f"}
+            ]
+          },
+          "layer":[
+            {
+              "mark":"bar"
+            },
+            {
+              "mark":{
+                "type": "text",
+                "align":"left",
+                "dx":3
+              },
+              "encoding": {
+                "text":{
+                  "datum":5.532838926174494,
+                  "format":".2f"},
+                "color":{"value":"grey"}
+              }
+            },
+            {
+              "mark":{
+                "type": "text",
+                "align":"left",
+                "dx":10
+              },
+              "encoding": {
+                "x":{"datum":0},
+                "text":{"value":"Global average"},
+                "color":{"value":"black"}
+              }
+            }
+          ]
+        },
+        {
           "mark":{
             "type": "text",
             "align":"left",
@@ -44,7 +102,9 @@
           "encoding": {
             "text":{
               "field":"Ladder score", 
-              "format":".2f"}
+              "format":".2f"
+            },
+            "color":{"value":"#b21218"}
           }
         },
         {
@@ -56,7 +116,7 @@
           "encoding": {
             "x":{"datum":0},
             "text":{"field":"Country name"},
-            "color":{"value":"white"}
+            "color":{"value":{"expr": "datum.rank < 150-N/2 ? 'black' : 'white'"}}
           }
         }
       ]
