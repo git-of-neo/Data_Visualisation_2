@@ -167,9 +167,9 @@
     ]
     ,
     "config":{
-      "mark": {"invalid": null}
-      ,
-      "autosize":"fit-x"
+      "mark": {"invalid": null},
+      "autosize":"fit-x",
+      "tick": {"thickness": 3, "size":20}
     }
 }
   
