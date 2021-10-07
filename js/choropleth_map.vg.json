@@ -30,7 +30,8 @@
         "layer": [
           {
             "mark": {
-              "type": "geoshape"
+              "type": "geoshape",
+              "stroke":"darkslategray"
             },
             "encoding": {
               "color": {
@@ -133,6 +134,36 @@
             }
           }
           ]
+        },
+        {
+          "data":{"values":{}},
+          "mark":{
+            "type":"text",
+            "align":"left",
+            "dx":-10,
+            "fontSize":13,
+            "fontStyle":"bold"
+          },
+          "encoding": {
+            "longitude":{"datum":-180},
+            "latitude":{"datum":0},
+            "text":{"value":"Happiest Countries"}
+          }
+        },
+        {
+          "data":{"values":{}},
+          "mark":{
+            "type":"text",
+            "align":"left",
+            "dx":-10,
+            "dy":16,
+            "fontSize":12
+          },
+          "encoding": {
+            "longitude":{"datum":-180},
+            "latitude":{"datum":0},
+            "text":{"datum":["1.Finland","2.Denmark","3.Switzerland","4.Iceland","5.Netherlands","6. Norway", "7. Sweden", "8. Luxembourg", "9. New Zealand", "10. Austria"]}
+          }
         }     
       ]
       }
