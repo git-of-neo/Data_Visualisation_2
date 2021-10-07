@@ -1,6 +1,6 @@
 var disable_action = {actions: false};
 
-var map = "js/dot_map.vg.json";
+var map = "js/choropleth_map.vg.json";
     vegaEmbed("#map", map, disable_action).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);
