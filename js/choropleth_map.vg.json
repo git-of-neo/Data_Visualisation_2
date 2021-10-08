@@ -129,6 +129,7 @@
                 "axis":{"grid": true, "title":"Ladder score", "titleFontSize": 14}
               },
             "color": {
+              "scale":{"range":["#4c78a8", "#9ecae9", "#b279a2" , "#54a24b" , "#d67195", "#d6a5c9", "#9e765f", "#439894", "#83bcb6", "#79706e", "#d8b5a5"]},
               "field": "Regional indicator",
               "type": "nominal", 
               "legend":{
@@ -142,7 +143,7 @@
               "axis":null
             }, 
             "opacity":{
-              "condition":{"selection":"selected_region", "value":{"expr": "datum['Ladder score'] > 5.532838926174494 ? 0.8 : 0.4"}},
+              "condition":{"selection":"selected_region", "value":{"expr": "datum['Ladder score'] > 5.532838926174494 ? 0.9 : 0.9"}},
               "value": 0.1
           },
             "tooltip":[
@@ -150,6 +151,31 @@
                 {"field":"Country name"},
                 {"field":"Regional indicator"}
               ]
+          }
+        },
+        {
+          "mark":{
+            "type": "text",
+            "dy":-30,
+            "text":["Least happy", "region"]
+          },
+          "encoding": {
+            "x":{"field":"Jitter","type": "quantitative"},
+            "y":{"field":"Ladder score","type": "quantitative"},
+            "opacity":{"value":{"expr": "datum['Country name'] == 'Nepal'?1:0"}}
+          }
+        },
+        {
+          "mark":{
+            "type": "text",
+            "dy":20,
+            "dx":5,
+            "text":["Most happy", "region"]
+          },
+          "encoding": {
+            "x":{"field":"Jitter","type": "quantitative"},
+            "y":{"field":"Ladder score","type": "quantitative"},
+            "opacity":{"value":{"expr": "datum['Country name'] == 'Australia'?1:0"}}
           }
         },
         {
@@ -184,7 +210,8 @@
               "dx": 2,
               "dy": 5,
               "x": "width",
-              "text": "global average"
+              "text": "global average",
+              "color":"grey"
             }
           }
           ]
