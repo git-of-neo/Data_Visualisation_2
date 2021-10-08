@@ -60,6 +60,9 @@
                   "zero":false,
                   "nice":true,
                   "scheme":"redyellowgreen"
+                },
+                "legend":{
+                  "titleFontSize":12
                 }
               },
               "opacity":{
@@ -130,7 +133,7 @@
               "type": "nominal", 
               "legend":{
                 "labelExpr" : "datum.label == 'Central and Eastern Europe' ? 'Central & Eastern Europe' : datum.label == 'Commonwealth of Independent States' ? 'CIS' : datum.label == 'Latin America and Caribbean' ? 'Latin America & Caribbean' : datum.label == 'Middle East and North Africa' ? 'Middle East & North Africa' : datum.label == 'North America and ANZ' ? 'North America & ANZ' : datum.label",
-                "labelLimit":250,"symbolOpacity":1, "labelFontSize":11, "titleFontSize":14
+                "labelLimit":250,"symbolOpacity":1, "labelFontSize":11, "titleFontSize":12
               }
             },
             "x": {
@@ -193,7 +196,8 @@
     "config":{
       "mark": {"invalid": null},
       "autosize":"fit-x",
-      "tick": {"thickness": 3, "size":20}
+      "tick": {"thickness": 3, "size":20},
+      "font": "Open Sans"
     }
 }
   

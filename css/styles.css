@@ -1,13 +1,9 @@
-.body{
-    font-family: 'Source Sans Pro', sans-serif;
-}
-
-h1{
-    font-weight: bolder;
-}
-
 body{
     background-color: #252525;
+}
+.bolded{
+    font-weight: 900;
+    font-family: 'Open Sans', sans-serif;
 }
 .page{
     width: 64em;
@@ -18,10 +14,12 @@ body{
     padding-top: 0px;
 }
 .paragraph{
+    font-family: 'Open Sans', sans-serif;
     font-size: 1em;
 }
 
 .section-header{
+    font-family: 'Open Sans', sans-serif;
     margin-top:0px;
 }
 .viz{
