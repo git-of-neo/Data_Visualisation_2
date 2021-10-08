@@ -7,7 +7,8 @@
             "feature": "ne_110m_admin_0_countries"
           }
     },
-    "transform": [{
+    "transform": [
+      {
       "lookup": "properties.NAME",
       "from": {
         "data": {
@@ -28,6 +29,22 @@
         },
         "layer": [
           {
+            "transform": [{"calculate": "datum.properties.NAME + ' is not included in the report'", "as": "note"}],
+            "mark":{
+              "type": "geoshape",
+              "fill":"#EEEEEE",
+              "stroke":"darkslategray"
+            },
+            "encoding": {
+              "tooltip":{"field":"note"},
+              "opacity":{
+                "condition":{"selection":"selected_region", "value":1},
+                "value": 0.2
+              }
+            }
+          },
+          {
+            "transform": [{"filter":"datum['Ladder score'] != null"}],
             "mark": {
               "type": "geoshape",
               "stroke":"darkslategray"
@@ -36,10 +53,6 @@
               "color": {
                 "field": "Ladder score",
                 "type": "quantitative",
-                "condition":{
-                  "test":"datum['Ladder score'] == null",
-                  "value":"#EEEEEE"
-                },
                 "scale":{
                   "zero":false,
                   "nice":true,
@@ -65,7 +78,7 @@
               "fontStyle":"bold"
             },
             "encoding": {
-              "longitude":{"datum":-160},
+              "longitude":{"datum":-165},
               "latitude":{"datum":0},
               "text":{"value":"Happiest Countries"}
             }
@@ -79,7 +92,7 @@
               "fontSize":12
             },
             "encoding": {
-              "longitude":{"datum":-160},
+              "longitude":{"datum":-165},
               "latitude":{"datum":0},
               "text":{"datum":["1.Finland","2.Denmark","3.Switzerland","4.Iceland","5.Netherlands","6. Norway", "7. Sweden", "8. Luxembourg", "9. New Zealand", "10. Austria"]}
             }
