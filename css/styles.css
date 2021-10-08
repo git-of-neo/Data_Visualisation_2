@@ -1,3 +1,11 @@
+.body{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1{
+    font-weight: bolder;
+}
+
 body{
     background-color: #252525;
 }
@@ -6,11 +14,13 @@ body{
     margin: auto;
     background-color: white;
     padding:2em;
+    padding-right: 3em;
     padding-top: 0px;
 }
 .paragraph{
     font-size: 1em;
 }
+
 .section-header{
     margin-top:0px;
 }
