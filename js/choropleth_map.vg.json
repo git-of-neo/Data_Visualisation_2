@@ -111,7 +111,7 @@
         "width": "container",
         "title":{
           "text":"Distribution of happiness score per region",
-          "dy":30
+          "dy":5
         },
         "layer":[
         {
