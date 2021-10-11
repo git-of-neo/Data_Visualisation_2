@@ -42,7 +42,7 @@
               "tooltip":{"field":"note"},
               "opacity":{
                 "condition":{"selection":"selected_region", "value":1},
-                "value": 0.2
+                "value": 0.05
               }
             }
           },
@@ -67,7 +67,7 @@
               },
               "opacity":{
                 "condition":{"selection":"selected_region", "value":1},
-                "value": 0.2
+                "value": 0.05
               },
               "tooltip": [
                 {"field": "properties.NAME", "type": "nominal", "title": "Country"},
@@ -109,6 +109,10 @@
       {
         "data": {"url": "data/jitter.csv"},
         "width": "container",
+        "title":{
+          "text":"Distribution of happiness score per region",
+          "dy":30
+        },
         "layer":[
         {
           "selection":{
@@ -154,6 +158,7 @@
           }
         },
         {
+          "transform": [{"filter":"datum['Country name'] == 'Nepal'"}],
           "mark":{
             "type": "text",
             "dy":-30,
@@ -162,10 +167,14 @@
           "encoding": {
             "x":{"field":"Jitter","type": "quantitative"},
             "y":{"field":"Ladder score","type": "quantitative"},
-            "opacity":{"value":{"expr": "datum['Country name'] == 'Nepal'?1:0"}}
+            "opacity":{
+              "condition":{"selection":"selected_region", "value":1},
+              "value": 0
+            }
           }
         },
         {
+          "transform": [{"filter":"datum['Country name'] == 'Australia'"}],
           "mark":{
             "type": "text",
             "dy":20,
@@ -175,7 +184,10 @@
           "encoding": {
             "x":{"field":"Jitter","type": "quantitative"},
             "y":{"field":"Ladder score","type": "quantitative"},
-            "opacity":{"value":{"expr": "datum['Country name'] == 'Australia'?1:0"}}
+            "opacity":{
+              "condition":{"selection":"selected_region", "value":1},
+              "value": 0
+            }
           }
         },
         {
@@ -187,7 +199,7 @@
             "color":{"value":"black"},
             "opacity":{
               "condition":{"selection":"selected_region", "value":1},
-              "value": 0.1
+              "value": 0.0
             },
             "tooltip":[
               {"field":"Ladder score" , "title":"Regional average", "format":".2f"},

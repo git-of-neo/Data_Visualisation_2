@@ -16,12 +16,26 @@ body{
 .paragraph{
     font-family: 'Open Sans', sans-serif;
     font-size: 1em;
+    color: rgba(128, 128, 128, 0.829);
 }
 
 .section-header{
     font-family: 'Open Sans', sans-serif;
     margin-top:0px;
+    font-weight: 900;
 }
 .viz{
     width: 100% ;
+}
+.red-text{
+    color: red;
+    font-weight:bold;
+}
+.bolded-text{
+    color: rgba(0, 0, 0, 0.77);
+    font-weight: bold;
+}
+.green-text{
+    color: green;
+    font-weight:bold;
 }
