@@ -11,7 +11,8 @@ body{
     background-color: white;
     padding:2em;
     padding-right: 3em;
-    padding-top: 0px;
+    padding-top: 0em;
+    padding-bottom: 1em;
 }
 .paragraph{
     font-family: 'Open Sans', sans-serif;
@@ -45,4 +46,10 @@ body{
 .green-text{
     color: green;
     font-weight:bold;
+}
+.authorship-text{
+    margin-top: 0em;
+    margin-bottom: 0em;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8em;
 }
