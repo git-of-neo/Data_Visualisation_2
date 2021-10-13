@@ -38,8 +38,7 @@
         },
         "color":{
           "legend":null,
-          "scale":{"scheme":"reds", "reverse":true}, 
-          "field":"Ladder score"
+          "value":{"expr": "datum['Country name'] == 'Afghanistan' ? '#b21218' : 'lightgrey'"}
         },
         "tooltip":[
           {"field":"Ladder score"},
@@ -62,7 +61,7 @@
               "field":"Ladder score", 
               "format":".2f"
             },
-            "color":{"value":"#b21218"}
+            "color":{"value":{"expr": "datum['Country name'] == 'Afghanistan' ? '#b21218' : 'grey'"}}
           }
         },
         {
@@ -74,7 +73,7 @@
           "encoding": {
             "x":{"datum":0},
             "text":{"field":"Country name"},
-            "color":{"value":{"expr": "datum.rank < 150-N/3*2? 'black' : 'white'"}}
+            "color":{"value":{"expr": "datum['Country name'] == 'Afghanistan' ? 'white' : 'black'"}}
           }
         }
       ]
