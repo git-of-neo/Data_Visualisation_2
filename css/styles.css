@@ -18,7 +18,14 @@ body{
     font-size: 1em;
     color: rgba(128, 128, 128, 0.829);
 }
-
+.main-header{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 3em;
+    font-weight: 900;
+    margin-bottom: 0em;
+    margin-top: 0.3em;
+    text-align: center;
+}
 .section-header{
     font-family: 'Open Sans', sans-serif;
     margin-top:0px;
