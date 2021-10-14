@@ -20,7 +20,7 @@
     "bind":{
       "input": "range",
       "min": 2,
-      "max": 10,
+      "max": 20,
       "step": 1,
       "name": "Number of countries : "
     }
