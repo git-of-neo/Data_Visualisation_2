@@ -1,7 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width":"container",
-  "height":250,
+  "height":220,
+  "title":{
+    "text":"The lowest ranked countries in 2021",
+    "fontSize":15
+  },
   "data": {
     "url":"data/world-happiness-report-2021.csv"
   },
@@ -15,9 +19,9 @@
     "bind":{
       "input": "range",
       "min": 2,
-      "max": 20,
+      "max": 10,
       "step": 1,
-      "name": "Lowest N ranked : "
+      "name": "Number of countries : "
     }
   }],
   "layer": [

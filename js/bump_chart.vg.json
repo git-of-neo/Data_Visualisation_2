@@ -1,6 +1,10 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "description": "Bump chart",
+    "title":{
+      "text":"Top 10 ranked countries over the years",
+      "fontSize":15
+    },
     "width": "container",
     "data": {
       "url": "data/top_10_rank.csv"
