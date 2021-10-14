@@ -88,8 +88,7 @@
               "type":"text",
               "align":"left",
               "fontSize":13,
-              "fontStyle":"bold",
-              "color":"darkslategray"
+              "fontStyle":"bold"
             },
             "encoding": {
               "longitude":{"datum":-165},
@@ -103,8 +102,7 @@
               "type":"text",
               "align":"left",
               "dy":16,
-              "fontSize":12,
-              "color":"darkslategray"
+              "fontSize":12
             },
             "encoding": {
               "longitude":{"datum":-165},
@@ -126,6 +124,15 @@
         {
           "transform": [{"window": [{"op":"rank","as": "Rank"}],
           "sort": [{"field": "Ladder score","order":"descending"}]}],
+          "params": [{
+            "name": "hover",
+            "value": [{"Country name": "Afghanistan"}],
+            "select": {
+              "type": "point",
+              "fields": ["Country name"],
+              "on": "mouseover"
+            }
+          }],
           "selection":{
             "selected_region":{
               "type":"multi",
