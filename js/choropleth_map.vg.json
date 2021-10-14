@@ -65,9 +65,6 @@
                   "zero":false,
                   "nice":true,
                   "scheme":"redyellowgreen"
-                },
-                "legend":{
-                  "titleFontSize":12
                 }
               },
               "opacity":{
@@ -148,7 +145,7 @@
                 "field": "Ladder score", 
                 "type": "quantitative",
                 "scale": {"zero": false, "domainMin":2},
-                "axis":{"grid": true, "title":"Ladder score", "titleFontSize": 14}
+                "axis":{"grid": true, "title":"Ladder score"}
               },
             "color": {
               "scale":{"range":["#4c78a8", "#9ecae9", "#b279a2" , "#54a24b" , "#d67195", "#d6a5c9", "#9e765f", "#439894", "#83bcb6", "#79706e", "#d8b5a5"]},
@@ -156,7 +153,7 @@
               "type": "nominal", 
               "legend":{
                 "labelExpr" : "datum.label == 'Central and Eastern Europe' ? 'Central & Eastern Europe' : datum.label == 'Commonwealth of Independent States' ? 'CIS' : datum.label == 'Latin America and Caribbean' ? 'Latin America & Caribbean' : datum.label == 'Middle East and North Africa' ? 'Middle East & North Africa' : datum.label == 'North America and ANZ' ? 'North America & ANZ' : datum.label",
-                "labelLimit":250,"symbolOpacity":1, "labelFontSize":11, "titleFontSize":12
+                "labelLimit":250,"symbolOpacity":1, "labelFontSize":11
               }
             },
             "x": {
