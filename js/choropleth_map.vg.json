@@ -23,7 +23,7 @@
     "vconcat":[
       {
         "title":{
-          "text":"Happiness ranking of countries, 2021",
+          "text":"Happiness score of countries, 2021",
           "fontSize":15
         },
         "width":"container",
@@ -87,7 +87,7 @@
             "mark":{
               "type":"text",
               "align":"left",
-              "fontSize":13,
+              "fontSize":12,
               "fontStyle":"bold"
             },
             "encoding": {
@@ -116,7 +116,7 @@
         "data": {"url": "data/jitter.csv"},
         "width": "container",
         "title":{
-          "text":"Distribution of happiness score per region",
+          "text":"Distribution of countries per region",
           "fontSize":15,
           "dy":5
         },
