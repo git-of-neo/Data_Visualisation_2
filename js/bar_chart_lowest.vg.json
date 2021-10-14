@@ -13,7 +13,8 @@
     {"joinaggregate": [{"field": "Ladder score", "as": "average score", "op": "average"}]},
     {"calculate": "datum['Ladder score'] - datum['average score']", "as": "score_deviation"}
   ],
-  "params": [{
+  "params": [
+    {
     "name": "N",
     "value":10,
     "bind":{
@@ -52,7 +53,19 @@
       },
       "layer": [
         {
-          "mark":"bar"
+          "params": [{
+            "name": "hover",
+            "value": [{"Country name": "Afghanistan"}],
+            "select": {
+              "type": "point",
+              "fields": ["Country name"],
+              "on": "mouseover"
+            }
+          }],
+          "mark":"bar",
+          "encoding": {
+            "color":{"condition":{"param": "hover","value":"#b21218", "empty": false}, "value":"lightgrey"}
+          }
         },
         {
           "mark":{
@@ -65,7 +78,7 @@
               "field":"Ladder score", 
               "format":".2f"
             },
-            "color":{"value":{"expr": "datum['Country name'] == 'Afghanistan' ? '#b21218' : 'grey'"}}
+            "color":{"condition":{"param": "hover","value":"#b21218", "empty": false}, "value":"grey"}
           }
         },
         {
@@ -77,7 +90,7 @@
           "encoding": {
             "x":{"datum":0},
             "text":{"field":"Country name"},
-            "color":{"value":{"expr": "datum['Country name'] == 'Afghanistan' ? 'white' : 'black'"}}
+            "color":{"condition":{"param": "hover","value":"white", "empty": false}, "value":"black"}
           }
         }
       ]
